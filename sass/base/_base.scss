@@ -8,9 +8,28 @@
 
 html {
   // This defines what 1rem is, since browser font is usually 16px
-  font-size: 62.5%;
+  font-size: 62.5%; // 1rem is 10px, this is for desktops
+
+  @include respond(tab-land) {
+    // width < 1200?
+    font-size: 56.25%; // 56.25% of 16 = 9px
+  }
+
+  @include respond(tab-port) {
+    // width < 900? this must come before tab-land since, for example, 400 but only want tab-port to apply
+    font-size: 50%; // 1rem = 8px, 8/16 = 50%
+  }
+
+  @include respond(big-desktop) {
+    font-size: 75%;
+  }
 }
 
 body {
   box-sizing: border-box;
+  padding: 3rem;
+
+  @include respond(tab-port) {
+    padding: 0;
+  }
 }

@@ -12,14 +12,34 @@
 
 .row.flex2 {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
+  align-items: center;
+
+  .col-1-of-4 {
+    margin: 0 2rem;
+  }
+
+  @include respond(tab-port) {
+    flex-direction: column;
+
+    .col-1-of-4 {
+      margin: 3rem 3rem;
+    }
+  }
 }
 
 .feature-box {
-  width: 75%;
+  width: 90%;
   height: 90%;
-  margin-left: 15%;
   align-items: flex-start;
+
+  &:first-of-type {
+    margin-left: 4.5%;
+  }
+
+  &:last-of-type {
+    margin-right: 7.5%;
+  }
 
   &__test {
     margin: 2rem;
@@ -29,11 +49,21 @@
 .row.flex3 {
   display: flex;
   justify-content: space-evenly;
-}
 
-.col-1-of-3 {
-  width: 33.33333333%;
-  margin: 0 4rem;
+  .col-1-of-3 {
+    width: 33.33333333%;
+    margin: 0 4rem;
+
+    @include respond(tab-port) {
+      width: 50%;
+      margin-bottom: 2rem;
+    }
+  }
+
+  @include respond(tab-port) {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .row.flex4 {
@@ -48,14 +78,33 @@
 
 .row.flex6 {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  margin: 0 auto;
+
+  @include respond(tab-port) {
+    flex-direction: column;
+  }
 }
 
 .flex61 {
-  margin: 0 auto;
+  margin-right: 5rem;
+  display: flex;
+
+  @include respond(tab-port) {
+    align-items: center;
+    justify-content: center;
+    margin-right: 0;
+  }
 }
 
 .flex62 {
-  width: 50rem;
-  margin-right: 15rem;
+  display: flex;
+  justify-content: flex-end;
+
+  @include respond(tab-port) {
+    align-items: center;
+    justify-content: center;
+    margin-top: 3rem;
+    margin-right: 0;
+  }
 }
